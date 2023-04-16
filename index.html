@@ -5,11 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="sylesheet" href="src/css/general.css" />
-    <link rel="sylesheet" href="src/css/style.css" />
-    <link rel="sylesheet" href="src/css/queries.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/css/general.css" />
+    <link rel="stylesheet" href="src/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="src/css/queries.css" />
+
+    <!-- Scripts -->
+    <script type="module" stylesheet defer src="src/js/controller.js"></script>
 
     <title>Simple Schedule</title>
   </head>
-  <body></body>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header-title">
+          <h1>Simple</h1>
+          <h1>Schedule.</h1>
+        </div>
+        <form class="config-form">
+          <select class="start-time-select config-form-select" size="1">
+            <option id="default">Start time...</option>
+          </select>
+          <select class="end-time-select config-form-select" size="1">
+            <option id="default">End time...</option>
+          </select>
+          <select class="time-div-select config-form-select" size="1">
+            <option id="default">Time Divisions...</option>
+            <option id="15">15</option>
+            <option id="15">30</option>
+            <option id="15">60</option>
+          </select>
+          <button class="config-form-update-btn btn">Update</button>
+        </form>
+        <button class="reset-btn btn">Reset</button>
+      </header>
+
+      <section class="schedule-section">
+        <form class="daily-schedule-form"></form>
+      </section>
+    </div>
+  </body>
 </html>

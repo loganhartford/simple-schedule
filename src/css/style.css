@@ -1,0 +1,140 @@
+/**************************/
+/* GLOBAL */
+/**************************/
+
+:root {
+  --main-color: #007bff;
+  --main-text-grey: #555;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1;
+}
+
+/**************************/
+/* HEADER SECTION */
+/**************************/
+
+.header {
+  font-family: 'Montserrat', sans-serif;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-size: 1.4rem;
+}
+
+.config-form {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  gap: 1rem;
+}
+
+.config-form-select {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem;
+  color: #333;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.config-form-select:focus,
+.config-form-update-btn:focus,
+.reset-btn:focus {
+  box-shadow: 0 0 0 2px var(--main-color);
+}
+
+.config-form-select option {
+  padding: 0.5rem;
+}
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.
+
+/**************************/
+/* SCHEDULE SECTION */
+/**************************/
+.schedule-section {
+  margin: 0 auto;
+  max-width: 40rem;
+}
+
+.daily-schedule-form {
+  margin-top: 2rem;
+  display: grid;
+
+  grid-template-columns: 1fr 2fr;
+}
+
+.label-col,
+.input-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.label-col {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  text-align: right;
+}
+
+.input-col {
+  grid-column: 2 / 3;
+}
+
+.schedule-line {
+  gap: 5rem;
+}
+
+.schedule-label {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--main-text-grey);
+  margin-right: 1rem;
+}
+
+.schedule-input {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  width: 30rem;
+  font-size: 1.8rem;
+  height: 1.6rem;
+  border: none;
+  border-bottom: 1px solid var(--main-text-grey);
+}
+
+.schedule-input:focus {
+  outline: none;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px var(--main-color);
+}
