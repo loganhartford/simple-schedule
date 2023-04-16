@@ -1,6 +1,14 @@
 import View from './View.js';
 
 class HeaderView extends View {
+  addFormSubmitHandler(handler) {
+    const form = document.querySelector('.config-form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      handler();
+    });
+  }
+
   addResetHandler(handler) {
     const resetBtn = document.querySelector('.reset-btn');
     resetBtn.addEventListener('click', handler);

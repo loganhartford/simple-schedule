@@ -19,6 +19,7 @@ class ScheduleView extends View {
   }
 
   renderSchedule(state) {
+    console.log(state);
     const { timeDivisions, startHour, endHour, activities } = state;
 
     // The form element to add input elements to

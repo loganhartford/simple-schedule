@@ -1,7 +1,7 @@
 export let state = {
   startHour: 7,
   endHour: 23,
-  timeDivisions: 30,
+  timeDivisions: 15,
   activities: {},
 };
 

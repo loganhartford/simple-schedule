@@ -2,6 +2,29 @@ import * as model from './model.js';
 import headerView from './views/headerView.js';
 import scheduleView from './views/scheduleView.js';
 
+const controlConfigSubmission = function () {
+  const startHour = document.querySelector('.start-time-select').value;
+  const endHour = document.querySelector('.end-time-select').value;
+  const timeDivisions = document.querySelector('.time-div-select').value;
+  console.log(startHour, endHour, timeDivisions);
+  model.state.startHour =
+    startHour === 'Start time...'
+      ? model.state.startHour
+      : +startHour.slice(0, startHour.indexOf(':'));
+  model.state.endHour =
+    endHour === 'End time...'
+      ? model.state.endHour
+      : +endHour.slice(0, endHour.indexOf(':'));
+  model.state.timeDivisions =
+    timeDivisions === 'Time Divisions...'
+      ? model.state.timeDivisions
+      : +timeDivisions;
+
+  scheduleView.clearSchedule();
+  model.storeState();
+  scheduleView.renderSchedule(model.state);
+};
+
 const controlReset = function () {
   scheduleView.clearSchedule();
   model.resetState();
@@ -58,6 +81,7 @@ const init = function () {
   model.retreiveExistingState();
   headerView.renderConfigForm();
   scheduleView.renderSchedule(model.state);
+  headerView.addFormSubmitHandler(controlConfigSubmission);
   headerView.addResetHandler(controlReset);
   scheduleView.addKeypressHandler(controlFormNavigation);
 };
@@ -66,9 +90,6 @@ init();
 
 /*
 Next Steps:
-- figure out what data strucure to store the schedule and the state and stor it on each submit
-- sotre the data with locat storage
-- make the reset clear the data from local storage and clear the schedule
 - make the start and endtime update work
   - don't want it ot clear the form entries that already exist if you change the time window
 - make the time divisions work
