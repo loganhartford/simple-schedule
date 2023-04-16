@@ -4,13 +4,11 @@ class ScheduleView extends View {
   addKeypressHandler(handler) {
     const schedule = document.querySelector('.daily-schedule-form');
     schedule.addEventListener('keypress', function (e) {
-      console.log(e.key);
       if (e.key === 'Enter') {
         handler(true);
       }
     });
     schedule.addEventListener('keydown', function (e) {
-      console.log(e.key);
       if (e.key === 'ArrowUp') {
         handler(false);
       }
@@ -20,20 +18,9 @@ class ScheduleView extends View {
     });
   }
 
-  renderConfigForm() {
-    const startSelect = document.querySelector('.start-time-select');
-    const endSelect = document.querySelector('.end-time-select');
-    for (let hour = 0; hour <= 24; hour++) {
-      const option = document.createElement('option');
-      option.className = 'config-option';
-      option.textContent = `${hour}:00`;
-      const optionCopy = option.cloneNode(true);
-      startSelect.appendChild(option);
-      endSelect.appendChild(optionCopy);
-    }
-  }
+  renderSchedule(state) {
+    const { timeDivisions, startHour, endHour, activities } = state;
 
-  renderSchedule(timeDivisions, startHour, endHour) {
     // The form element to add input elements to
     const form = document.querySelector('.daily-schedule-form');
     const labelCol = document.createElement('div');
@@ -45,14 +32,20 @@ class ScheduleView extends View {
         const [label, input] = this._createInputAndLabel(
           hour,
           minute,
-          timeDivisions
+          timeDivisions,
+          activities
         );
 
         labelCol.appendChild(label);
         inputCol.appendChild(input);
       }
     }
-    const [label, input] = this._createInputAndLabel(endHour, 0, timeDivisions);
+    const [label, input] = this._createInputAndLabel(
+      endHour,
+      0,
+      timeDivisions,
+      activities
+    );
 
     labelCol.appendChild(label);
     inputCol.appendChild(input);
@@ -61,7 +54,7 @@ class ScheduleView extends View {
     form.appendChild(labelCol);
   }
 
-  _createInputAndLabel(hour, minute, timeDivisions) {
+  _createInputAndLabel(hour, minute, timeDivisions, activities) {
     const time = this._formatTime(hour, minute);
     const label = document.createElement('label');
     label.innerText = time;
@@ -74,6 +67,9 @@ class ScheduleView extends View {
     input.step = timeDivisions * 60; // Delete this line later if unused
     input.className = 'schedule-input';
     input.autocomplete = 'off';
+
+    input.value = time in activities ? activities[time] : '';
+
     return [label, input];
   }
 
@@ -81,6 +77,11 @@ class ScheduleView extends View {
     // const hourStr = hour < 10 ? `${hour}` : `${hour}`;
     const minuteStr = minute < 10 ? `0${minute}` : `${minute}`;
     return `${hour}:${minuteStr}`;
+  }
+
+  clearSchedule() {
+    const form = document.querySelector('.daily-schedule-form');
+    form.innerHTML = '';
   }
 }
 

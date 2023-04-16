@@ -1,18 +1,27 @@
+import * as model from './model.js';
+import headerView from './views/headerView.js';
 import scheduleView from './views/scheduleView.js';
+
+const controlReset = function () {
+  scheduleView.clearSchedule();
+  model.resetState();
+  scheduleView.renderSchedule(model.state);
+};
 
 const controlFormNavigation = function (increment) {
   const activeInput = document.activeElement;
   const activeID = activeInput.id;
-  console.log(activeInput, activeID);
+
+  _updateActivities(activeInput);
+
   const activeHour = +activeID.slice(0, activeID.indexOf(':'));
   const activeMin = +activeID.slice(activeID.indexOf(':') + 1);
   console.log(activeHour, activeMin);
-  if (activeHour === 23) {
-    // Need to ge the end hour from stat information
+  if (activeHour === model.state.endHour) {
     activeInput.blur();
     return;
   }
-  const timeDiv = 30; // need to get this from the state infomration
+  const timeDiv = model.state.timeDivisions;
   let newMin, newHour;
   newHour = activeHour;
   if (increment) {
@@ -32,14 +41,24 @@ const controlFormNavigation = function (increment) {
 
   const newID = `${newHour}:${newMin}`;
   const nextInput = document.getElementById(newID);
-  console.log(newID, nextInput);
+
   nextInput.focus();
+  model.storeState();
+};
+
+const _updateActivities = function (activeInput) {
+  if (activeInput.value) {
+    model.state.activities[activeInput.id] = activeInput.value;
+    console.log(model.state);
+    console.log(model.state.activities[activeInput.id]);
+  }
 };
 
 const init = function () {
-  scheduleView.renderConfigForm();
-  scheduleView.renderSchedule(30, 7, 23);
-
+  model.retreiveExistingState();
+  headerView.renderConfigForm();
+  scheduleView.renderSchedule(model.state);
+  headerView.addResetHandler(controlReset);
   scheduleView.addKeypressHandler(controlFormNavigation);
 };
 
