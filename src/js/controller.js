@@ -93,10 +93,8 @@ init();
 
 /*
 Next Steps:
-- add some way to group units of time together, wither automatically or manually
-  -coule try using shadow instead of underline to show the input elemens
-  -when you want to combin elements, but them into a div and give them the same soutline
--Add dynamic css effects
-  -hover on scheudle el
-  -btn hover/active
+-When it reloads, the entries loose their darkened underlines
+-disable the hover effect when one of the entry cells is focused
+- try and figure out a non-cancer way to center the schedule properly
+
 */
