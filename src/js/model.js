@@ -12,6 +12,9 @@ export const retreiveExistingState = function () {
 };
 
 export const resetState = function () {
+  state.startHour = 7;
+  state.endHour = 23;
+  state.timeDivisions = 30;
   state.activities = {};
   localStorage.setItem('state', JSON.stringify(state));
 };

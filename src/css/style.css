@@ -3,8 +3,9 @@
 /**************************/
 
 :root {
-  --main-color: #007bff;
+  --main-color: #339af0;
   --main-text-grey: #555;
+  --light-grey: #ddd;
 }
 
 * {
@@ -70,15 +71,22 @@ body {
 .btn {
   font-family: 'Inter', sans-serif;
   font-size: 1.4rem;
+  font-weight: 600;
   border: none;
   border-radius: 4px;
   padding: 0.5rem 1rem;
+  background-color: #add7f9;
   cursor: pointer;
   outline: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
 }
 
-.
+.btn:hover {
+  transform: scale(1.05);
+  background-color: var(--main-color);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+}
 
 /**************************/
 /* SCHEDULE SECTION */
@@ -130,10 +138,18 @@ body {
   font-size: 1.8rem;
   height: 1.6rem;
   border: none;
-  border-bottom: 1px solid var(--main-text-grey);
+  border-bottom: 1px solid var(--light-grey);
+  transition: all 0.2s;
+}
+
+.schedule-input:hover {
+  transform: scale(1.05);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .schedule-input:focus {
+  transform: scale(1);
   outline: none;
   border-radius: 4px;
   box-shadow: 0 0 0 2px var(--main-color);

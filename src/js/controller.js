@@ -74,7 +74,10 @@ const _updateActivities = function (activeInput) {
     model.state.activities[activeInput.id] = activeInput.value;
     console.log(model.state);
     console.log(model.state.activities[activeInput.id]);
+    activeInput.style.borderBottom = '1px solid var(--main-text-grey)';
+    return;
   }
+  activeInput.style.borderBottom = '1px solid var(--light-grey)';
 };
 
 const init = function () {
@@ -90,10 +93,10 @@ init();
 
 /*
 Next Steps:
-- make the start and endtime update work
-  - don't want it ot clear the form entries that already exist if you change the time window
-- make the time divisions work
 - add some way to group units of time together, wither automatically or manually
   -coule try using shadow instead of underline to show the input elemens
   -when you want to combin elements, but them into a div and give them the same soutline
+-Add dynamic css effects
+  -hover on scheudle el
+  -btn hover/active
 */
