@@ -115,4 +115,6 @@ init();
 Next Steps:
 - try and figure out a non-cancer way to center the schedule properly
 - make the website responsive
+- Add favicon and meta description
+- add browser support for flexbox in safari (css course)
 */
