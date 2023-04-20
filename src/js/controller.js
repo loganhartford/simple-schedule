@@ -1,3 +1,4 @@
+import 'core-js/stable';
 import * as model from './model.js';
 import headerView from './views/headerView.js';
 import scheduleView from './views/scheduleView.js';
@@ -112,8 +113,6 @@ init();
 
 /*
 Next Steps:
--When it reloads, the entries loose their darkened underlines
--disable the hover effect when one of the entry cells is focused
 - try and figure out a non-cancer way to center the schedule properly
-
+- make the website responsive
 */

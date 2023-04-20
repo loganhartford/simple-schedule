@@ -1,0 +1,29 @@
+{
+  "targets": {
+    "main": false
+  },
+  "name": "simpleschedule",
+  "version": "1.0.0",
+  "description": "A web app to quickly make daily schedules.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loganhartford/simple-schedule.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loganhartford/simple-schedule/issues"
+  },
+  "homepage": "https://github.com/loganhartford/simple-schedule#readme",
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "core-js": "^3.30.1"
+  }
+}
