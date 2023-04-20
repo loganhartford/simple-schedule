@@ -1,6 +1,21 @@
 import View from './View.js';
 
 class ScheduleView extends View {
+  addInputFocusHandler(handler) {
+    const inputs = document.querySelectorAll('.schedule-input');
+    inputs.forEach(input =>
+      input.addEventListener('focus', function () {
+        handler(true);
+      })
+    );
+
+    inputs.forEach(input =>
+      input.addEventListener('blur', function () {
+        handler(false);
+      })
+    );
+  }
+
   addKeypressHandler(handler) {
     const schedule = document.querySelector('.daily-schedule-form');
     schedule.addEventListener('keypress', function (e) {
@@ -70,6 +85,9 @@ class ScheduleView extends View {
     input.autocomplete = 'off';
 
     input.value = time in activities ? activities[time] : '';
+    input.style.borderBottom = input.value
+      ? '1px solid var(--main-text-grey)'
+      : '1px solid var(--light-grey)';
 
     return [label, input];
   }

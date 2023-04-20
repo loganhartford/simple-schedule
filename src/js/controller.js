@@ -1,46 +1,23 @@
 import * as model from './model.js';
 import headerView from './views/headerView.js';
-import siteView from './views/siteView.js';
 import scheduleView from './views/scheduleView.js';
 
-const controlPageClick = function (e) {
-  console.log(e.target);
-  if (e.target.nodeName === 'INPUT') {
-    const schedule = document.querySelector('.daily-schedule-form');
-    const scheduleChildren = schedule.children;
-    const scheduleInputs = _getAllScheduleInputs(scheduleChildren);
-    if (scheduleInputs) {
-      console.log(scheduleInputs);
-      _preventHoverOnInputs(scheduleInputs);
-    }
+const controlInputEffects = function (focused) {
+  const inputs = document.querySelectorAll('.schedule-input');
+  if (focused) {
+    inputs.forEach(input => {
+      if (input.classList.contains('hover')) {
+        input.classList.remove('hover');
+      }
+    });
     return;
   }
-  _enableHoverOnInputs(scheduleInputs);
-};
-
-const _getAllScheduleInputs = function (scheduleChildren) {
-  for (let i = 0; i < scheduleChildren.length; i++) {
-    if (scheduleChildren[i].className === 'input-col') {
-      return scheduleChildren[i].children;
+  console.log(focused);
+  inputs.forEach(input => {
+    if (!input.classList.contains('hover')) {
+      input.classList.add('hover');
     }
-  }
-  return '';
-};
-
-const _preventHoverOnInputs = function (scheduleInputs) {
-  for (let i = 0; i < scheduleInputs.length; i++) {
-    if (scheduleInputs[i].classList.contains('hover')) {
-      scheduleInputs[i].classList.remove('hover');
-    }
-  }
-};
-
-const _enableHoverOnInputs = function (scheduleInputs) {
-  for (let i = 0; i < scheduleInputs.length; i++) {
-    if (!scheduleInputs[i].classList.contains('hover')) {
-      scheduleInputs[i].classList.add('hover');
-    }
-  }
+  });
 };
 
 const controlConfigSubmission = function () {
@@ -125,7 +102,7 @@ const init = function () {
   model.retreiveExistingState();
   headerView.renderConfigForm();
   scheduleView.renderSchedule(model.state);
-  siteView.addClickHandler(controlPageClick);
+  scheduleView.addInputFocusHandler(controlInputEffects);
   headerView.addFormSubmitHandler(controlConfigSubmission);
   headerView.addResetHandler(controlReset);
   scheduleView.addKeypressHandler(controlFormNavigation);
