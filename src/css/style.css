@@ -93,14 +93,15 @@ body {
 /**************************/
 .schedule-section {
   margin: 0 auto;
-  max-width: 40rem;
+  max-width: 60rem;
 }
 
 .daily-schedule-form {
+  margin: 0 auto;
   margin-top: 2rem;
   display: grid;
 
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 10rem 50rem;
 }
 
 .label-col,

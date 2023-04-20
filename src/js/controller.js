@@ -1,4 +1,4 @@
-import 'core-js/stable';
+// import 'core-js/stable';
 import * as model from './model.js';
 import headerView from './views/headerView.js';
 import scheduleView from './views/scheduleView.js';
@@ -13,7 +13,6 @@ const controlInputEffects = function (focused) {
     });
     return;
   }
-  console.log(focused);
   inputs.forEach(input => {
     if (!input.classList.contains('hover')) {
       input.classList.add('hover');
@@ -25,7 +24,6 @@ const controlConfigSubmission = function () {
   const startHour = document.querySelector('.start-time-select').value;
   const endHour = document.querySelector('.end-time-select').value;
   const timeDivisions = document.querySelector('.time-div-select').value;
-  console.log(startHour, endHour, timeDivisions);
   model.state.startHour =
     startHour === 'Start time...'
       ? model.state.startHour
@@ -58,7 +56,6 @@ const controlFormNavigation = function (increment) {
 
   const activeHour = +activeID.slice(0, activeID.indexOf(':'));
   const activeMin = +activeID.slice(activeID.indexOf(':') + 1);
-  console.log(activeHour, activeMin);
   if (activeHour === model.state.endHour) {
     activeInput.blur();
     return;
@@ -91,8 +88,6 @@ const controlFormNavigation = function (increment) {
 const _updateActivities = function (activeInput) {
   if (activeInput.value) {
     model.state.activities[activeInput.id] = activeInput.value;
-    console.log(model.state);
-    console.log(model.state.activities[activeInput.id]);
     activeInput.style.borderBottom = '1px solid var(--main-text-grey)';
     return;
   }
