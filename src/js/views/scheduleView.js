@@ -66,7 +66,7 @@ class ScheduleView extends View {
     input.type = 'text';
     input.id = time;
     input.step = timeDivisions * 60; // Delete this line later if unused
-    input.className = 'schedule-input';
+    input.className = 'schedule-input hover';
     input.autocomplete = 'off';
 
     input.value = time in activities ? activities[time] : '';
