@@ -1,4 +1,4 @@
-// import 'core-js/stable';
+import 'core-js/stable';
 import * as model from './model.js';
 import headerView from './views/headerView.js';
 import scheduleView from './views/scheduleView.js';
