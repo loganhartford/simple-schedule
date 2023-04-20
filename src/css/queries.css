@@ -1,0 +1,107 @@
+/* rem and em do NOT depend on html font-size in media queries
+Instead we assume that 1 rem = 1em = 16px */
+
+
+/**************************/
+/* BELOW 800PX */
+/**************************/
+@media (max-width:50em) {
+    .container {
+        width: 55rem;
+    }
+
+    .header-title {
+        display: flex;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .schedule-section {
+        max-width: 38rem;
+      }
+
+    .daily-schedule-form {
+        grid-template-columns: 8rem 30rem;
+    }
+
+    .schedule-input {
+        width: 30rem;
+    }
+}
+
+/**************************/
+/* BELOW 550PX */
+/**************************/
+@media (max-width:35em) {
+
+    .container {
+        width: 40rem;
+    }
+
+    .config-form-select {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+
+    .btn {
+        font-size: 2rem;
+    }
+
+    .btn {
+        width: fit-content;
+    }
+
+    .config-form-select {
+        margin: 0 auto;
+    }
+
+    .config-form-select, 
+    .config-form-btns {
+        display: flex;
+        flex-direction: column;
+        /* gap: 1rem; */
+        margin-bottom: 1rem;
+        gap: 1rem;
+        height: 5rem;
+        height: fit-content;
+        align-items: center;
+    }
+
+    .schedule-section {
+        margin-top: 13rem;
+    }
+
+}
+
+/**************************/
+/* BELOW 400PX */
+/**************************/
+@media (max-width:25em) {
+
+    .container {
+        width: 100%;
+    }
+
+    .config-form-contaner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .schedule-section {
+        max-width: 100%;
+      }
+
+    .daily-schedule-form {
+        grid-template-columns: 6rem 1fr;
+    }
+
+    .schedule-input {
+        width: 100%;
+    }
+    
+}

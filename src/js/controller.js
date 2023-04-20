@@ -129,5 +129,4 @@ checkFlexGap();
 /*
 Next Steps:
 - make the website responsive
-- add browser support for flexbox in safari (css course)
 */

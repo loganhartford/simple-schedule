@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Simple Schedule is the easiest way to schedule your day. No fluff, only functionality." />
 
-    <!-- Always inlude this line of code!! -->
+    <!-- Need this line for responsive web design -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
     <!-- Favicons -->
@@ -41,22 +41,28 @@
           <h1>Simple</h1>
           <h1>Schedule.</h1>
         </div>
-        <form class="config-form">
-          <select class="start-time-select config-form-select" size="1">
-            <option id="default">Start time...</option>
-          </select>
-          <select class="end-time-select config-form-select" size="1">
-            <option id="default">End time...</option>
-          </select>
-          <select class="time-div-select config-form-select" size="1">
-            <option id="default">Time Divisions...</option>
-            <option id="15">15</option>
-            <option id="15">30</option>
-            <option id="15">60</option>
-          </select>
-          <button class="config-form-update-btn btn">Update</button>
-        </form>
-        <button class="reset-btn btn">Reset</button>
+        <div class="config-form-contaner">
+          <form class="config-form">
+            <div class="config-form-selects">
+              <select class="start-time-select config-form-select" size="1">
+                <option id="default">Start time...</option>
+              </select>
+              <select class="end-time-select config-form-select" size="1">
+                <option id="default">End time...</option>
+              </select>
+              <select class="time-div-select config-form-select" size="1">
+                <option id="default">Time Divisions...</option>
+                <option id="15">15</option>
+                <option id="15">30</option>
+                <option id="15">60</option>
+              </select>
+            </div>
+            <div class="config-form-btns">
+            <button class="config-form-update-btn btn">Update</button>
+          </form>
+          <button class="reset-btn btn">Reset</button>
+        </div>
+        </div>
       </header>
 
       <section class="schedule-section">
