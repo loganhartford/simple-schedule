@@ -1,4 +1,4 @@
-// import 'core-js/stable';
+import 'core-js/stable';
 import * as model from './model.js';
 import headerView from './views/headerView.js';
 import scheduleView from './views/scheduleView.js';
@@ -191,6 +191,4 @@ checkFlexGap();
 
 /*
 Next Steps:
-- whens submitting the form, should check all cells and remove styling if text has been removed
-- Data is not actually getting cleared from local storage when and entry is removed
 */
