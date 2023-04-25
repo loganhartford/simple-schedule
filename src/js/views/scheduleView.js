@@ -9,16 +9,16 @@ class ScheduleView extends View {
     const inputs = document.querySelectorAll('.schedule-input');
     // Focus handler
     inputs.forEach(input =>
-      input.addEventListener('focus', function () {
+      input.addEventListener('focus', function (e) {
         const focused = true;
-        handler(focused);
+        handler(e, focused);
       })
     );
     // Blur handler
     inputs.forEach(input =>
-      input.addEventListener('blur', function () {
+      input.addEventListener('blur', function (e) {
         const focused = false;
-        handler(focused);
+        handler(e, focused);
       })
     );
   }

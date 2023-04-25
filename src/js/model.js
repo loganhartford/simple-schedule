@@ -10,7 +10,6 @@ export let state = {
  */
 export const retreiveExistingState = function () {
   const exisitingState = localStorage.getItem('state');
-  console.log(exisitingState);
   state = exisitingState ? JSON.parse(exisitingState) : state;
 };
 

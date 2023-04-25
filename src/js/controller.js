@@ -9,7 +9,7 @@ import scheduleView from './views/scheduleView.js';
  * @param {boolean} focused - schedule form state
  * @returns {null}
  */
-const controlInputEffects = function (focused) {
+const controlInputEffects = function (event, focused) {
   const inputs = document.querySelectorAll('.schedule-input');
   if (focused) {
     inputs.forEach(input => {
@@ -19,11 +19,16 @@ const controlInputEffects = function (focused) {
     });
     return;
   }
+  // unfocused
   inputs.forEach(input => {
     if (!input.classList.contains('hover')) {
       input.classList.add('hover');
     }
   });
+  // Also want to store the input infomation when the form is unfocused
+  const activeInput = event.target;
+  _updateActivities(activeInput);
+  model.storeState();
 };
 
 /**
@@ -67,6 +72,7 @@ const controlReset = function () {
   scheduleView.clearSchedule();
   model.resetState();
   scheduleView.renderSchedule(model.state);
+  scheduleView.addInputFocusHandler(controlInputEffects);
 };
 
 /**
@@ -169,7 +175,6 @@ function checkFlexGap() {
   document.body.appendChild(flex);
   var isSupported = flex.scrollHeight === 1;
   flex.parentNode.removeChild(flex);
-  console.log(isSupported);
 
   if (!isSupported) document.body.classList.add('no-flexbox-gap');
 }
@@ -177,7 +182,6 @@ checkFlexGap();
 
 /*
 Next Steps:
-- When you unfocus one of the feilds, also sumbit the form
 - The hover code doesn't work after hitting the reset button
 - Add ability to delete entire cell using delete key
 - whens submitting the form, should check all cells and remove styling if text has been removed
