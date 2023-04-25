@@ -31,6 +31,13 @@ const controlInputEffects = function (event, focused) {
   model.storeState();
 };
 
+const controlInputDeletion = function () {
+  const activeInput = document.activeElement;
+  activeInput.value = '';
+  _updateActivities(activeInput);
+  model.storeState();
+};
+
 /**
  * Clear the schedule view->
  * Stores the data from the config form in the state object->
@@ -66,13 +73,14 @@ const controlConfigSubmission = function () {
 /**
  * When the reset button is pressed, clear the schedule view->
  * Clear the state object->
- * Render the schedule with the default state information
+ * Render the schedule with the default state information->Attach handlers to newly created inputs.
  */
 const controlReset = function () {
   scheduleView.clearSchedule();
   model.resetState();
   scheduleView.renderSchedule(model.state);
   scheduleView.addInputFocusHandler(controlInputEffects);
+  scheduleView.addInputDeleteKeypressHandler(controlInputDeletion);
 };
 
 /**
@@ -150,11 +158,12 @@ const _updateActivities = function (activeInput) {
 const init = function () {
   model.retreiveExistingState();
   headerView.renderConfigForm();
-  scheduleView.renderSchedule(model.state);
-  scheduleView.addInputFocusHandler(controlInputEffects);
   headerView.addFormSubmitHandler(controlConfigSubmission);
   headerView.addResetHandler(controlReset);
+  scheduleView.renderSchedule(model.state);
   scheduleView.addKeypressHandler(controlFormNavigation);
+  scheduleView.addInputFocusHandler(controlInputEffects);
+  scheduleView.addInputDeleteKeypressHandler(controlInputDeletion);
 };
 
 init();
@@ -182,8 +191,6 @@ checkFlexGap();
 
 /*
 Next Steps:
-- The hover code doesn't work after hitting the reset button
-- Add ability to delete entire cell using delete key
 - whens submitting the form, should check all cells and remove styling if text has been removed
 - Data is not actually getting cleared from local storage when and entry is removed
 */

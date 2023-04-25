@@ -23,6 +23,18 @@ class ScheduleView extends View {
     );
   }
 
+  addInputDeleteKeypressHandler(handler) {
+    const inputs = document.querySelectorAll('.schedule-input');
+
+    inputs.forEach(input =>
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Delete') {
+          handler();
+        }
+      })
+    );
+  }
+
   /**
    * Add a handler funciton to key press events on form. Specifically "Enter" and the up/down arrow keys. Both navigate the schedule.
    * @param {Event Handler Function} handler - Fucntion called after and event
