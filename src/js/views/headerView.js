@@ -1,6 +1,10 @@
 import View from './View.js';
 
 class HeaderView extends View {
+  /**
+   * Add event handler function to the sumbit event on the configuration form.
+   * @param {Event Handler Function} handler - Fucntion called after and event
+   */
   addFormSubmitHandler(handler) {
     const form = document.querySelector('.config-form');
     form.addEventListener('submit', function (e) {
@@ -9,11 +13,19 @@ class HeaderView extends View {
     });
   }
 
+  /**
+   * Add event handler function to the click even on the reset button.
+   * @param {Event Handler Function} handler - Fucntion called after and event
+   */
   addResetHandler(handler) {
     const resetBtn = document.querySelector('.reset-btn');
     resetBtn.addEventListener('click', handler);
   }
 
+  /**
+   * Creates the start time and end time select options for the config form.
+   * The rest is written in index.html.
+   */
   renderConfigForm() {
     const startSelect = document.querySelector('.start-time-select');
     const endSelect = document.querySelector('.end-time-select');
