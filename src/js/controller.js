@@ -191,4 +191,5 @@ checkFlexGap();
 
 /*
 Next Steps:
+- The data is not being saved when the form is not focused on the deployed version of the site
 */
