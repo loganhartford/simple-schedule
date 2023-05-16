@@ -1,4 +1,4 @@
-import 'core-js/stable';
+// import 'core-js/stable';
 import * as model from './model.js';
 import headerView from './views/headerView.js';
 import scheduleView from './views/scheduleView.js';
@@ -132,6 +132,11 @@ const controlFormNavigation = function (increment) {
   const nextInput = document.getElementById(newID);
 
   nextInput.focus();
+  // Put the cursor at the end of the input feild for more intuitive typing
+  setTimeout(() => {
+    const length = nextInput.value.length;
+    nextInput.setSelectionRange(length, length);
+  }, 0);
   model.storeState();
 };
 
