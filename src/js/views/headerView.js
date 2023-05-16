@@ -38,6 +38,14 @@ class HeaderView extends View {
       endSelect.appendChild(optionCopy);
     }
   }
+
+  resetConfigForm() {
+    const configSelects = document.querySelectorAll('.config-form-select');
+    const configDefaults = document.querySelectorAll('#default');
+    for (let i = 0; i < configDefaults.length; i++) {
+      configSelects[i].value = configDefaults[i].value;
+    }
+  }
 }
 
 export default new HeaderView();

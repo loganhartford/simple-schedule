@@ -68,6 +68,8 @@ const controlConfigSubmission = function () {
   scheduleView.clearSchedule();
   model.storeState();
   scheduleView.renderSchedule(model.state);
+  scheduleView.addInputFocusHandler(controlInputEffects);
+  scheduleView.addInputDeleteKeypressHandler(controlInputDeletion);
 };
 
 /**
@@ -77,6 +79,7 @@ const controlConfigSubmission = function () {
  */
 const controlReset = function () {
   scheduleView.clearSchedule();
+  headerView.resetConfigForm();
   model.resetState();
   scheduleView.renderSchedule(model.state);
   scheduleView.addInputFocusHandler(controlInputEffects);
@@ -191,5 +194,4 @@ checkFlexGap();
 
 /*
 Next Steps:
-- The data is not being saved when the form is not focused on the deployed version of the site
 */
