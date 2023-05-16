@@ -66,6 +66,7 @@ const controlConfigSubmission = function () {
       : +timeDivisions;
 
   scheduleView.clearSchedule();
+  headerView.resetConfigForm();
   model.storeState();
   scheduleView.renderSchedule(model.state);
   scheduleView.addInputFocusHandler(controlInputEffects);
