@@ -15,7 +15,7 @@ Welcome to SimpleSchedule! This website is designed to make it as simple as poss
 
 Check out this short demo of SimpleSchedule in action:
 
-![Demo](https://github.com/loganhartford/simple-schedule/blob/main/demo/video/demo.gif?raw=true)
+![Demo](https://github.com/loganhartford/simple-schedule/blob/main/demo/video/demo_faster.gif?raw=true)
 
 ## Screenshots
 
